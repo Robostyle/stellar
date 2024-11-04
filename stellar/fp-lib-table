@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Stellarlib")(type "KiCad")(uri "${KIPRJMOD}/Stellarlib.pretty")(options "")(descr ""))
+)
