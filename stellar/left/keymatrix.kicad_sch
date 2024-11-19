@@ -4,6 +4,12 @@
 	(generator_version "8.0")
 	(uuid "c0724ead-7154-4e73-b260-518389442896")
 	(paper "A4")
+	(title_block
+		(title "Key matrix")
+		(date "2024-11-18")
+		(rev "v0.99")
+		(company "Robo productions")
+	)
 	(lib_symbols
 		(symbol "Diode:1N4148W"
 			(pin_numbers hide)
