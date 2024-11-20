@@ -496,17 +496,7 @@
     "meta": {
       "version": 3
     },
-    "net_colors": {
-      "/keyscan_column0": "rgb(0, 0, 255)",
-      "/keyscan_column1": "rgb(0, 255, 0)",
-      "/keyscan_column2": "rgb(0, 255, 255)",
-      "/keyscan_column3": "rgb(255, 0, 0)",
-      "/keyscan_row0": "rgb(0, 194, 194)",
-      "/keyscan_row1": "rgb(194, 194, 0)",
-      "/keyscan_row2": "rgb(194, 0, 194)",
-      "/keyscan_row3": "rgb(0, 194, 0)",
-      "/keyscan_row4": "rgb(221, 133, 0)"
-    },
+    "net_colors": null,
     "netclass_assignments": null,
     "netclass_patterns": [
       {
