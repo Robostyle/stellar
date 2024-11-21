@@ -505,7 +505,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "export/",
+      "plot": "gerber/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "../stellar.step",
