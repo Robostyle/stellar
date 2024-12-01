@@ -346,7 +346,7 @@
 		(roundrect_rratio 0.166667)
 		(uuid "08531fd9-6158-4596-9368-804d9c813467")
 	)
-	(model "/Users/robertsuijker/stellar-test/stellar/3d-library.3dshapes/JST-PH-2 v1.step"
+	(model "${KIPRJMOD}/../3d-library.3dshapes/JST-PH-2 v1.step"
 		(offset
 			(xyz 0 -4.3 0)
 		)
