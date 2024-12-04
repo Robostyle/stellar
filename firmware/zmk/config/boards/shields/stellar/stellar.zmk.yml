@@ -1,0 +1,13 @@
+file_format: "1"
+id: stellar
+name: Stellar
+type: shield
+url: https://github.com/todo/zmk-stellar
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+siblings:
+  - stellar_left
+  - stellar_right

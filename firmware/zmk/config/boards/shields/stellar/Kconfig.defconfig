@@ -1,0 +1,16 @@
+if SHIELD_STELLAR_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Stellar"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_STELLAR_LEFT || SHIELD_STELLAR_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
