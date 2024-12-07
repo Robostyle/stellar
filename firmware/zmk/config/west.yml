@@ -1,11 +1,30 @@
+# ZMK-Workspace
+# ├── config
+# ├── modules (user modules)
+# └── zmk
+#     └── modules (Zephyr modules)
+#
+# To create a local build environment, clone this repository and then run the
+# following commands from its toplevel directory:
+#
+# $ west init -l config
+# $ west update
+# $ west zephyr-export
+#
+---
 manifest:
   remotes:
-    - name: zmkfirmware
+    - name: upstream
       url-base: https://github.com/zmkfirmware
+
   projects:
+    # ZMK with Zephyr namespaced under /zmk. This requires that ZMK imports
+    # Zephyr with a path other than `zephyr` (as in `going-modular`).
     - name: zmk
-      remote: zmkfirmware
-      revision: main
-      import: app/west.yml
+      path: .
+      import:
+        file: app/west.yml
+        path-prefix: zmk
+
   self:
     path: config

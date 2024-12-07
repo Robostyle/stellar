@@ -17,4 +17,7 @@
 - add silkscreen text for identifying the key, e.g. SW1, etc.
 
 
+## Inspiration
+
+- https://github.com/urob/zmk-config
 
