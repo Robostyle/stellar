@@ -15,6 +15,8 @@
 
 - revision/made text is mirrored on `laR`.
 - add silkscreen text for identifying the key, e.g. SW1, etc.
+- set rotation on pinky to 10° instead to 5°.
+- move the extra row next to the pinky column a bit up (next to the homerow?).
 
 
 ## Inspiration
