@@ -187,7 +187,7 @@
 			"fd3038e4-f07f-4271-b4ed-70fdd005e68e"
 		)
 	)
-	(model "${KIPRJMOD}/3d-library.3dshapes/microswitch_3x4x2mm.step"
+	(model "${KIPRJMOD}/../3d-library.3dshapes/microswitch_3x4x2mm.step"
 		(offset
 			(xyz 0 0 0)
 		)

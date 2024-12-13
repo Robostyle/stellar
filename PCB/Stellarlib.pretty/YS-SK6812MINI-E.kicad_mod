@@ -191,7 +191,7 @@
 		(layers "F.Cu" "F.Paste" "F.Mask")
 		(uuid "d01e975a-7550-40b5-96af-03cbb2d3d70b")
 	)
-	(model "${KIPRJMOD}/3d-library.3dshapes/YS-SK6812MINI-E.step"
+	(model "${KIPRJMOD}/../3d-library.3dshapes/YS-SK6812MINI-E.step"
 		(offset
 			(xyz 0 0 0.15)
 		)

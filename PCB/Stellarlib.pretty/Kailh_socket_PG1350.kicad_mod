@@ -688,7 +688,7 @@
 			"de6c63f7-eaca-4c47-aa17-9a50fc28c7e3" "efe0b57d-53ab-483c-b324-b219ef3d8853"
 		)
 	)
-	(model "${KIPRJMOD}/3d-library.3dshapes/PG1350-socket.STEP"
+	(model "${KIPRJMOD}/../3d-library.3dshapes/PG1350-socket.STEP"
 		(offset
 			(xyz 10 5.95 -1.73)
 		)
@@ -699,7 +699,8 @@
 			(xyz -90 0 0)
 		)
 	)
-	(model "${KIPRJMOD}/3d-library.3dshapes/SW_Kailh_Choc_V1.stp"
+	(model "${KIPRJMOD}/../3d-library.3dshapes/SW_Kailh_Choc_V1.stp"
+		(hide yes)
 		(offset
 			(xyz 0 0 0)
 		)
