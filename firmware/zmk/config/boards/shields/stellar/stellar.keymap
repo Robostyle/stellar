@@ -1,4 +1,5 @@
 #define CONFIG_WIRELESS
+#define CONFIG_RGB_UNDERGLOW
 
 /* source key position labels */
 #include "zmk-helpers/key-labels/stellar.h"

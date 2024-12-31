@@ -7,11 +7,28 @@
 #include <behaviors.dtsi>
 #include <behaviors/num_word.dtsi> // requires auto-layer module
 #include <dt-bindings/zmk/keys.h>
+
 #ifdef CONFIG_WIRELESS
     #include <dt-bindings/zmk/bt.h>
     #define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR
 #else
     #define _BT_SEL_KEYS_ &trans &trans &trans &trans &trans
+#endif
+
+#ifdef CONFIG_RGB_UNDERGLOW
+    #include <dt-bindings/zmk/rgb.h>
+    #define UG_CLR_PINK &rgb_ug RGB_COLOR_HSB(328, 100, 54)
+    #define UG_CLR_RED  &rgb_ug RGB_COLOR_HSB(348, 83, 47)
+    #define UG_CLR_BLUE &rgb_ug RGB_COLOR_HSB(207, 44, 49)
+    #define UG_CLR_PRPL &rgb_ug RGB_COLOR_HSB(260, 49, 86)
+
+    #define _UG_RGB_CLR_KEYS_ &rgb_ug RGB_TOG UG_CLR_PINK UG_CLR_RED UG_CLR_BLUE UG_CLR_PRPL
+    #define _UG_RGB_UP_KEYS_ &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_SPI &rgb_ug RGB_EFF
+    #define _UG_RGB_DN_KEYS_ &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_SPD &rgb_ug RGB_EFR
+#else
+    #define _UG_RGB_CLR_KEYS_ &trans &trans &trans &trans &trans
+    #define _UG_RGB_UP_KEYS_ &trans &trans &trans &trans &trans
+    #define _UG_RGB_DN_KEYS_ &trans &trans &trans &trans &trans
 #endif
 
 #include "zmk-helpers/helper.h"
@@ -21,6 +38,8 @@
 #define FN  2
 #define SYM 3
 #define SYS 4
+#define MED 5
+#define GAM 6
 
 #define XXX &none
 #define ___ &trans
@@ -180,7 +199,7 @@ ZMK_LAYER(base,
 //╰─────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╰─────────╯
                 &kp Z         &kp X         &kp C         &kp D         &kp V            &kp K         &kp H         &kp COMMA     &kp DOT       &kp FSLH
 //            ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                              &lt_spc NAV 0 &lt FN TAB    &smart_shft   &kp RET          &kp RET       &kp DEL       &kp BSPC     SMART_NUM
+                              &lt_spc NAV 0 &smart_shft   &lt FN TAB    &mo MED          &kp RET       &kp DEL       &kp BSPC      SMART_NUM
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────╯  ╰─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
@@ -239,6 +258,21 @@ ZMK_LAYER(sys,
     ___         ___           ___           ___           ___           &bootloader      &bootloader   ___           ___           ___           ___             ___
 //╰─────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╰─────────╯
                 ___           ___           ___           ___           &sys_reset       &sys_reset    ___           ___           ___           ___
+//            ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
+                              ___           ___           ___           ___              ___           ___           ___           ___
+//                          ╰─────────────┴─────────────┴─────────────┴─────────────╯  ╰─────────────┴─────────────┴─────────────┴─────────────╯
+)
+
+
+ZMK_LAYER(media,
+//            ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+                ___           ___           ___           ___           ___              ___           ___           ___           ___           ___
+//            ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                            _UG_RGB_CLR_KEYS_                            ___           ___           ___           ___           ___
+//╭─────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────╮
+    ___                                     _UG_RGB_UP_KEYS_                             ___           ___           ___           ___           ___             ___
+//╰─────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╰─────────╯
+                                            _UG_RGB_DN_KEYS_                             ___           ___           ___           ___           ___
 //            ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                               ___           ___           ___           ___              ___           ___           ___           ___
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────╯  ╰─────────────┴─────────────┴─────────────┴─────────────╯
