@@ -183,6 +183,7 @@ ZMK_TAP_DANCE(copy_cut,
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
 
 
+
 /* Keymap */
 
 ZMK_CONDITIONAL_LAYER(sys, FN SYM, SYS)  // FN + NUM --> SYS
@@ -193,7 +194,7 @@ ZMK_LAYER(base,
 //            ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                 &kp Q         &kp W         &kp F         &kp P         &kp B            &kp J         &kp L         &kp U         &kp Y         &kp SEMI
 //╭─────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────╮
-    &kp ESC     &hml LGUI A   &hml LALT R   &hml LSHFT S  &hml LCTRL T  &kp G            &kp M         &hmr LCTRL N  &hmr RSHFT E  &hmr LALT I   &hmr LGUI O     &kp RET
+    &kp ESC     &hml LGUI A   &hml LALT R   &hml LSHFT S  &hml LCTRL T  &kp G            &kp M         &hmr LCTRL N  &hmr LSHFT E  &hmr LALT I   &hmr LGUI O     &kp RET
 //╰─────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╰─────────╯
                 &kp Z         &kp X         &kp C         &kp D         &kp V            &kp K         &kp H         &kp COMMA     &kp DOT       &kp FSLH
 //            ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
