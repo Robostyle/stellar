@@ -2,3 +2,4 @@
 .west/
 build/
 modules/
+zmk/
