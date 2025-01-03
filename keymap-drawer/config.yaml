@@ -1,0 +1,9 @@
+parse_config:
+  zmk_additional_includes:
+    - "config/boards/shields/stellar"
+    - "modules/helpers/include"
+
+draw_config:
+  dark_mode: auto
+  footer_text: "Stellar"
+  n_columns: 2

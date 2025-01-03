@@ -28,8 +28,6 @@ manifest:
       path: modules/auto-layer
     - name: zmk-helpers
       path: modules/helpers
-    - name: zmk-leader-key
-      path: modules/leader-key
     - name: zmk-tri-state
       path: modules/tri-state
 

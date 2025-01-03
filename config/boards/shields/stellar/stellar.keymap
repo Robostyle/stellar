@@ -2,7 +2,7 @@
 #define CONFIG_RGB_UNDERGLOW
 
 /* source key position labels */
-#include "zmk-helpers/key-labels/stellar.h"
+#include "key-labels/stellar.h"
 
 /* source the main keymap */
 #include "base.keymap"
