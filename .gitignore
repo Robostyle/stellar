@@ -3,3 +3,6 @@
 build/
 modules/
 zmk/
+
+keymap-drawer/base.svg
+keymap-drawer/base.yaml
