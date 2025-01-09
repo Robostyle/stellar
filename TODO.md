@@ -5,4 +5,5 @@
 * ZMK studio?
 * Display?
 * Status LEDs
+* see minusfive repo for configuration parameters for sleep, battery reports and other stuff 
 * 
