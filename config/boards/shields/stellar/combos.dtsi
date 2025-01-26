@@ -5,22 +5,19 @@
 #define COMBO_IDLE_SLOW 50
 
 /* Horizontal combos - left hand */
-ZMK_COMBO(escl,   &kp ESC,      LT3 LT2,     DEF NAV SYM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(escr,   &kp ESC,      RT3 RT2,     DEF NAV SYM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(retl,   &kp RETURN,   LT2 LT1,     DEF NAV SYM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(retr,   &kp RETURN,   RT2 RT1,     DEF NAV SYM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(escl,   &kp ESC,      LT3 LT2,    DEF, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(escr,   &kp ESC,      RT3 RT2,    DEF, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(retl,   &kp RETURN,   LT2 LT1,    DEF, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(retr,   &kp RETURN,   RT2 RT1,    DEF, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
 
 // Combos overlapping HRMs are set up as hold-taps themselves to allow for instantaneous
 // chording of mods. Custom hold-tap instances can be bootstrapped on the go using the
 // 8-argument version of ZMK_COMBO defined in base.keymap.
 
-ZMK_COMBO(tabl,   &hml LS(LALT)TAB, LM2 LM1, DEF NAV SYM GAM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(tabr,   &hml LS(LALT)TAB, RM2 RM1, DEF NAV SYM GAM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(tabl,   &kp TAB,      LM2 LM1,    DEF GAM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(tabr,   &kp TAB,      RM2 RM1,    DEF GAM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-ZMK_COMBO(cut,   &kp LC(X),    LB3 LB1,     DEF NAV SYM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(copy,  &kp LC(INS),  LB3 LB2,     DEF NAV SYM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(paste, &kp LS(INS),  LB2 LB1,     DEF NAV SYM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-
-
-ZMK_COMBO(xgame, &to DEF,  LT0 RT0,         GAM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(cut,   &kp LS(DEL),   LB3 LB1,    DEF, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(copy,  &kp LC(INS),   LB3 LB2,    DEF, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(paste, &kp LS(INS),   LB2 LB1,    DEF, COMBO_TERM_FAST, COMBO_IDLE_FAST)
