@@ -3,6 +3,7 @@
 .west/
 build/
 modules/
+zephyr/
 zmk/
 
 keymap-drawer/base.*

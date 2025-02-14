@@ -39,7 +39,7 @@ Install the dependencies:
 west init -l config
 west update
 west zephyr-export
-pip install -r zmk/modules/zephyr/zephyr/scripts/requirements-base.txt
+pip install -r zephyr/scripts/requirements.txt
 ```
 
 The command to build the `stellar` firmware is:
