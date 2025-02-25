@@ -25,47 +25,18 @@ Clone the repository:
 
 `git clone git@github.com:Robostyle/stellar.git`
 
-Initialize the Python virtual environment and install `west`:
+After cloning, you can make the firmware with:
 
-```sh
-python3 -m venv .venv
-source .venv/bin/activate
-pip install west
+```bash
+make 
 ```
 
-Install the dependencies:
+This will build the firmware and place the output in `firmware`.
 
-```sh
-west init -l config
-west update
-west zephyr-export
-pip install -r zephyr/scripts/requirements.txt
+### Development
+
+In case you like to modify the code, you can perform incremental builds with:
+
+```bash
+make build
 ```
-
-The command to build the `stellar` firmware is:
-
-for the left halve:
-
-```sh
-west build -s zmk/app -p -d build/left -b nice_nano_v2 -- -DSHIELD=stellar_left -DZMK_CONFIG="/full/path/to/stellar/firmware/zmk/config"
-```
-
-Incremental builds can be performed with:
-
-```sh
-west build -d build/left
-```
-
-and for the right halve:
-
-```sh
-west build -s zmk/app -p -d build/right -b nice_nano_v2 -- -DSHIELD=stellar_right -DZMK_CONFIG="/full/path/to/stellar/firmware/zmk/config"
-```
-
- 
-Incremental builds can be performed with:
-
-```sh
-west build -d build/right
-```
-
