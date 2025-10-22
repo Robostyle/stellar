@@ -143,13 +143,6 @@ ZMK_ADAPTIVE_KEY(
   /delete-property/ ignore-modifiers;
 };
 
-// Tap: num-word | double-tap: sticky num-layer | Hold: num-layer.
-#define SMART_NUM &smart_num NUM 0
-ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
-             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
-ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
-              tapping-term-ms = <200>;)
-
 
 /* Custom behaviors */
 
@@ -157,13 +150,6 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
 #define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2)                            \
   ZMK_MOD_MORPH(NAME, mods = <(MOD_L##MOD | MOD_R##MOD)>;                      \
                 bindings = <BINDING1>, <BINDING2>;)
-
-// Tap: space | Shift + tap: dot -> space -> sticky shift | Hold: nav layer.
-ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&spc_morph>; flavor = "balanced";
-             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
-SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
-ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>;
-          tap-ms = <5>;)
 
 // Tap: backspace | Lshft + tap: delete | Rshft + tap: shift-delete.
 ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>;
@@ -195,7 +181,7 @@ ZMK_BASE_LAYER(Base,
 //╰─────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╰─────────╯
                 &kp Z         &kp X         &kp C         &kp D         &kp V       ,    &kp K         &kp H         &kp COMMA     &kp DOT       &kp APOS    ,
 //            ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                              MAGIC_SHIFT   &kp TAB       &lt FN DEL    &mo MED     ,    &mo SYS       &kp RET       &lt_spc SYM 0 SMART_NUM
+                              MAGIC_SHIFT   &lt SYM TAB   &lt FN DEL    &mo MED     ,    &mo SYS       &kp RET       &lt NUM SPACE &kp RSHFT
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────╯  ╰─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
@@ -285,11 +271,11 @@ ZMK_BASE_LAYER(Game,
 //            ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                 &kp TAB       &kp Q         &kp W         &kp E         &kp R       ,    &kp Y         &kp U         &kp I         &kp O         &kp P       ,
 //╭─────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────╮
-    ___         &kp LSHFT     &kp A         &kp S         &kp D         &kp F       ,    &kp H         &kp J         &kp K         &kp J         &kp SEMI        ___     ,
+    ___         &kp LSHFT     &kp A         &kp S         &kp D         &kp F       ,    &kp H         &kp J         &kp K         &kp L         &kp SEMI        ___     ,
 //╰─────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╰─────────╯
-                &kp LCTRL     &kp Z         &kp X         &kp C         &kp V       ,    &kp N         &kp M         &kp COMMA     &kp DOT       &kp SLASH   ,
+                &kp LALT      &kp Z         &kp X         &kp C         &kp V       ,    &kp N         &kp M         &kp COMMA     &kp DOT       &kp SLASH   ,
 //            ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                              &kp LALT      &kp SPACE     &lt GAMP RET  ___         ,    ___           ___           ___           ___
+                              &kp SPACE     &kp LCTRL     &lt GAMP RET  ___         ,    ___           &kp LGUI      &kp LBKT      &kp RBKT
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────╯  ╰─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
@@ -300,11 +286,11 @@ ZMK_BASE_LAYER(GamePlus,
 //            ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                 &kp Q         &kp W         &kp E         &kp R         &kp T       ,    &kp Y         &kp U         &kp I         &kp O         &kp P       ,
 //╭─────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────╮
-    ___         &kp A         &kp S         &kp D         &kp F         &kp G       ,    &kp H         &kp J         &kp K         &kp J         &kp SEMI        &kp RET ,
+    ___         &kp A         &kp S         &kp D         &kp F         &kp G       ,    &kp H         &kp J         &kp K         &kp L         &kp SEMI        &kp RET ,
 //╰─────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╰─────────╯
                 &kp Z         &kp X         &kp C         &kp V         &kp B       ,    &kp N         &kp M         &kp COMMA     &kp DOT       &kp SLASH   ,
 //            ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                              ___           ___           ___           ___         ,    ___           &kp LGUI      &kp LBKT      &kp RBKT
+                              ___           ___           ___           ___         ,    ___           ___           ___           ___
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────╯  ╰─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
