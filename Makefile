@@ -103,6 +103,12 @@ deploy: build-full
 	$(call DEPLOY_HALVE,right)
 
 
+.PHONY: reset-fw
+reset-fw: init clean-deploy
+	@$(call info_log,Building left halve);									\
+	$(call INIT_PYTHON_VENV);												\
+	west build -s zmk/app -p -d $(build_path)/reset-fw -b nice_nano_v2			\
+		-- -DSHIELD=settings_reset -DZMK_CONFIG=$(config_path)
 
 .PHONY: draw
 draw:
