@@ -19,7 +19,7 @@
 manifest:
   defaults:
     remote: urob
-    revision: v0.1
+    revision: main
 
   remotes:
     - name: urob
@@ -28,10 +28,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
 
   projects:
-    # This is vanilla ZMK - just using my remote to pin the current state of main,
-    # as upstream hasn't yet released a version with mouse.
     - name: zmk
-      revision: v0.1+mouse
+      remote: zmkfirmware
       import: app/west.yml
 
     # ZMK modules
@@ -45,17 +43,14 @@ manifest:
     # Temporarily overload Zephyr until
     # https://github.com/zmkfirmware/zephyr/pull/40 is merged.
     - name: zephyr
-      revision: v3.5.0+zmk-fixes
+      remote: zmkfirmware
+      revision: v4.1.0+zmk-fixes
       clone-depth: 1
       import:
-        # Only enable most commonly used boards. For less common hardware one
-        # may need to enable additional modules.
         name-allowlist:
           - cmsis
           - hal_nordic
-          - hal_rpi_pico
-          - hal_stm32
-          - lvgl
+          - mbedtls
           - tinycrypt
 
   self:
