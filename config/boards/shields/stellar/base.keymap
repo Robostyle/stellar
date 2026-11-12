@@ -116,12 +116,6 @@ ZMK_HOLD_TAP(nav_thumb, bindings = <&mo>, <&kp>; flavor = "balanced";
   ZMK_MOD_MORPH(NAME, mods = <(MOD_L##MOD | MOD_R##MOD)>;                      \
                 bindings = <BINDING1>, <BINDING2>;)
 
-// Hold: Lshft: Lshft | Lshft + Rshft: capslock
-ZMK_MOD_MORPH(rshft_caps, 
-              bindings = <&kp RSHFT>, <&caps_word>;
-              mods = <(MOD_LSFT)>;
-)
-
 // Tap: comma | Shift + tap: semicolon | Ctrl + shift + tap: <.
 SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &comma_inner_morph)
 SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
@@ -139,18 +133,17 @@ SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 
 /* Custom behaviors */
 
-#define CTRL_DEL &kp LC(DEL)
-
-// Tap: backspace | Lshft + tap: delete | Rshft + tap: ctrl-delete.
-ZMK_MOD_MORPH(bs_del_right,
-    bindings = <&kp BSPC>, <CTRL_DEL>;
-    mods = <(MOD_RSFT)>;
+// Tap: backspace | Lshft + tap: delete.
+ZMK_MOD_MORPH(bs_del,
+    bindings = <&kp BSPC>, <&kp DEL>;
+    mods = <(MOD_LSFT)>;
 )
 
-// 3. The Outer Morph: Handles the Left Shift logic and links to the inner morph
-ZMK_MOD_MORPH(bs_del,
-    bindings = <&bs_del_right>, <&kp DEL>;
-    mods = <(MOD_LSFT)>;
+// Tap: bs_del | Hold: right shift.
+ZMK_HOLD_TAP(shft_bs, bindings = <&kp>, <&bs_del>;
+    flavor = "hold-preferred";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
 )
 
 // Misc aliases.
@@ -172,11 +165,11 @@ ZMK_BASE_LAYER(Base,
 //            ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                 &kp Q         &kp W         &kp E         &kp R         &kp T       ,    &kp Y         &kp U         &kp I         &kp O         &kp P       ,
 //╭─────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────╮
-    &kp ESC     &hml LGUI A   &hml LALT S   &kp D         &hml LCTRL F  &kp G       ,    &kp H         &hmr LCTRL J  &kp K         &hmr LALT L   &hmr LGUI SEMI  &bs_del ,
+    &kp ESC     &hml LGUI A   &hml LALT S   &kp D         &hml LCTRL F  &kp G       ,    &kp H         &hmr LCTRL J  &kp K         &hmr LALT L   &hmr LGUI SEMI  &kp APOS,
 //╰─────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╰─────────╯
                 &kp Z         &kp X         &kp C         &kp V         &kp B       ,    &kp N         &kp M         &kp COMMA     &kp DOT       &kp SLASH   ,
 //            ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                              &kp LSHFT     NAV_SPACE     FN_DEL        &mo MED     ,    &mo SYS       &kp TAB       NAV_RET       &rshft_caps
+                              &kp LSHFT     NAV_SPACE     FN_DEL        &mo MED     ,    &mo SYS       &kp TAB       NAV_RET       &shft_bs RSHFT 0
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────╯  ╰─────────────┴─────────────┴─────────────┴─────────────╯
 )
 

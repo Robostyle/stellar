@@ -26,7 +26,6 @@ ZMK_COMBO(paste, &kp LS(INS),   LB2 LB1,    DEF NUM, COMBO_TERM_FAST, COMBO_IDLE
 
 /* Horizontal combos - right hand */
 
-ZMK_COMBO(apos,  &kp APOS,     RM0 RM1,     DEF NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 ZMK_COMBO(lpar,  &lpar_lt,     RM1 RM2,     DEF NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LCTRL),    KEYS_L)
 ZMK_COMBO(rpar,  &rpar_gt,     RM2 RM3,     DEF NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LALT),     KEYS_L)
 
